@@ -1,0 +1,208 @@
+:root {
+    --accent-color: rgba(255, 84, 172, 1);
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #232324;
+  }
+  
+  body * {
+    font-family: "IBM Plex Sans", serif;
+    font-weight: 400;
+  }
+  
+  body[dir="rtl"] * {
+    font-family: "IBM Plex Sans Arabic", serif;
+  }
+  
+  main {
+    height: 100dvh;
+    interpolate-size: allow-keywords;
+    overflow-x: clip;
+    display: grid;
+    place-items: center;
+  }
+  
+  .prompt {
+    width: 100%;
+    height: 100dvh;
+    background-color: rgba(0, 0, 0, .75);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(0);
+    opacity: 1;
+    transition: .25s;
+  }
+  
+  .prompt.vanish {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  
+  .prompt form {
+    width: 90%;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    background-color: #fefefe;
+    display: grid;
+    gap: 1rem;
+  }
+  .prompt h1 {
+    font-weight: 700;
+  }
+  .prompt form div {
+    display: grid;
+    gap: .5rem;
+  }
+  
+  .prompt form div.lang {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem;
+  }
+  
+  .prompt form div.lang label {
+    width: 100%;
+  }
+  
+  .prompt form div.name input {
+    padding: .75rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: .25s;
+  }
+  
+  .prompt form div.name input:focus,
+  .prompt form div.name input:hover {
+    border-color: var(--accent-color);
+  }
+  
+  .prompt form div.name label {
+    transition: .25s;
+  }
+  
+  .prompt form div.name label.error {
+    color: red;
+  }
+  
+  .prompt form div.name input.error {
+    border-color: red;
+  }
+  
+  .prompt form div.name span {
+    height: 0;
+    transition: .25s;
+  }
+  
+  .prompt form div.name span.error {
+    font-size: .9rem;
+    color: red;
+    height: auto;
+  }
+  
+  .prompt form div.lang input {
+    accent-color: var(--accent-color);
+  }
+  
+  .prompt form button {
+    padding: .75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--accent-color);
+    color: #fefefe;
+    font-size: 1rem;
+    transition: .25s;
+  }
+  
+  .prompt form button:focus,
+  .prompt form button:hover {
+    opacity: 0.8;
+  }
+  
+  .card:empty {
+    padding: 0;
+  }
+  
+  .card {
+    width: 90%;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+    transition: .25s;
+  }
+  
+  .card .title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.4rem;
+  }
+  
+  .card .title span {
+    color: var(--accent-color);
+    font-weight: 700;
+  }
+  
+  .card .img-holder img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  
+  #statement {
+    font-size: 1.1rem;
+  }
+  
+  .card .answer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card .answer button {
+    display: block;
+    padding: .6rem 1.7rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--accent-color);
+    color: #fefefe;
+    font-size: 1rem;
+    transition: .25s;
+  }
+  
+  .card .answer button:last-of-type {
+    background-color: #ddd;
+    color: #232424;
+  }
+  
+  .card .answer button:focus,
+  .card .answer button:hover {
+    opacity: .8;
+  }
+  
+  .card .answer button.vanish {
+    display: none;
+  }
+  @media screen and (min-width: 768px) {
+    .prompt form, .card {
+      width: 70%;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .prompt form, .card {
+      width: 50%;
+    }
+  }
